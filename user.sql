@@ -1,0 +1,12 @@
+INSERT INTO `user` VALUES ('aaa', '111', 1);
+INSERT INTO `user` VALUES ('bbb', '222', 2);
+INSERT INTO `user` VALUES ('ccc', '123', 3);
+INSERT INTO `user` VALUES ('ddd', '123', 4);
+INSERT INTO `user` VALUES ('root', 'root', 5);
+INSERT INTO `user` VALUES ('张三', 'wdnmd', 6);
+INSERT INTO `user` VALUES ('123456', '111111', 7);
+INSERT INTO `user` VALUES ('123', '123', 8);
+INSERT INTO `user` VALUES ('869994221', 'zcc2000618', 9);
+INSERT INTO `user` VALUES ('wdnmd', 'wdnmd', 10);
+INSERT INTO `user` VALUES ('zhy', '12345', 11);
+INSERT INTO `user` VALUES ('吃瓜老王', 'qwe123', 12);
