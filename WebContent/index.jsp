@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/pintuer.css">
     <link rel="stylesheet" href="css/admin.css">
     <script src="js/jquery.js"></script>
-    
+
     
 </head>
 <body style="background-color:#f2f9fd;">
@@ -21,8 +21,8 @@
     
   </div>
   
-  <div class="head-l" style="position: relative; left: 850px;">
-  <span style="font-size: 15px; margin-right: 5px; color: white;">当前用户：<%=session.getAttribute("username") %></span>
+  <div class="head-l" style="position: relative; left: 830px;">
+  <span style="font-size: 15px; margin-right: 5px; color: white;">当前用户：${username}</span>
   <a class="button button-little bg-green" href="" target="_blank"><span class="icon-home"></span> 前台首页</a> &nbsp;&nbsp;
   <a href="##" class="button button-little bg-blue"><span class="icon-wrench"></span> 清除缓存</a> &nbsp;&nbsp;
   <a class="button button-little bg-red" href="UserServlet?method=userOut"><span class="icon-power-off"></span> 退出登录</a>
@@ -38,6 +38,7 @@
     <li><a href="adv.html" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>   
     <li><a href="book.html" target="right"><span class="icon-caret-right"></span>留言管理</a></li>     
     <li><a href="column.html" target="right"><span class="icon-caret-right"></span>栏目管理</a></li>
+    <li><a href="UserServlet?method=selUserInfo" target="right"><span class="icon-caret-right"></span>查询用户信息</a></li>
   </ul>   
   <h2><span class="icon-pencil-square-o"></span>栏目管理</h2>
   <ul>

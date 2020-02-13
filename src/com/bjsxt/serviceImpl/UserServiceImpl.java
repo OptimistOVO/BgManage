@@ -1,5 +1,7 @@
 package com.bjsxt.serviceImpl;
 
+import java.util.List;
+
 import com.bjsxt.bean.User;
 import com.bjsxt.dao.UserDao;
 import com.bjsxt.daoImpl.UserDaoImpl;
@@ -29,6 +31,15 @@ public class UserServiceImpl implements UserService {
 			}
 		}
 		return false;
+	}
+	
+	/**
+	 * UserList.jsp查看用户信息
+	 */
+	@Override
+	public List<User> selUserInfo() {
+		UserDao dao = new UserDaoImpl();
+		return dao.selUserInfo();
 	}
 
 }

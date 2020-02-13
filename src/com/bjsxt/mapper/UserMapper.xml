@@ -6,6 +6,9 @@
 		select * from user where username = #{0}
 	</select>
 	<insert id="regUser" parameterType="User">
-		insert into user values(#{username},#{password},default)
+		insert into user values(default,#{username},#{password},#{sex},#{age},#{birthday})
 	</insert>
+	<select id="selUserInfo" resultType="User">
+		select * from user
+	</select>
 </mapper>

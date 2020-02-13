@@ -1,5 +1,7 @@
 package com.bjsxt.daoImpl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.bjsxt.bean.User;
@@ -56,6 +58,13 @@ public class UserDaoImpl implements UserDao {
 			return 1;
 		}
 		return -1;
+	}
+
+	@Override
+	public List<User> selUserInfo() {
+		SqlSession session = MyBatisUtil.getSqlsession();
+		
+		return session.selectList("com.bjsxt.mapper.UserMapper.selUserInfo");
 	}
 
 }

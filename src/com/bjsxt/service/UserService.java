@@ -1,5 +1,7 @@
 package com.bjsxt.service;
 
+import java.util.List;
+
 import com.bjsxt.bean.User;
 
 public interface UserService {
@@ -9,5 +11,7 @@ public interface UserService {
 	boolean checkLogin(User u);
 
 	boolean regUser(User u);
+
+	List<User> selUserInfo();
 
 }

@@ -1,9 +1,10 @@
 项目名称:
-	尚学堂后台管理系统
+	后台信息管理系统
 项目需求:
 	实现用户登录
 	实现用户退出
 	实现用户注册
+	实现userList页面数据是活数据
 功能分析：
 	用户登录:
 		根据用户名和密码查询用户信息。查到则登录成功，查不到则登录失败。
@@ -13,20 +14,18 @@
 		将用户注册信息插入数据库
 数据库设计:
 	用户表：user
-		用户id id
-		用户名    username
-		用户密码 password
-#		用户性别 sex
-#		用户年龄 age
-#		出生日期 birthday
+		用户id id			int
+		用户名    username	String
+		用户密码 password	String
+#		用户性别 sex		String
+#		用户年龄 age		int
+#		出生日期 birthday	String
 
-SQL语句设计：
+SQL语句设计(部分)：
 	用户登录
-		select * from t_user where uname=? and pwd=?
+		select * from user where username=? and password=?
 	用户注册
-		insert into t_user values(default,?,?,?,?,?)
-代码实现：
-	参照源码
+		insert into user values(default,?,?,?,?,?)
 -----------------------------------------------------
 问题1：
 	现在我们一个请求或者一个独立的业务逻辑都单独进行一个Servlet的创建进行请求处理。
@@ -96,7 +95,9 @@ JSP+Servlet+MyBatis项目整合练习总结和期望:
 ---------------------------------------------------------
 项目缺陷：
 	1、在jsp中获取从Servlet流转过来的数据特别麻烦
+		更新解决：用EL表达式${名字}来代替
 	2、在jsp页面中使用java代码块进行逻辑处理书写和阅读极不方便
+		更新解决：用JSTL和EL表达式实现
 	3、使用session进行数据流转是很方便的，但是session失效了，所有依赖session的功能都会出问题。
 	4、响应结果都是覆盖原有内容显示给用户
 

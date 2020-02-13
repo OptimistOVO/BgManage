@@ -1,5 +1,7 @@
 package com.bjsxt.dao;
 
+import java.util.List;
+
 import com.bjsxt.bean.User;
 
 public interface UserDao {
@@ -9,5 +11,7 @@ public interface UserDao {
 	Boolean checkRepeat(User u);
 
 	int regUser(User u);
+
+	List<User> selUserInfo();
 
 }

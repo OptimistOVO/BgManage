@@ -3,11 +3,10 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -37,6 +36,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			//将男的选择状态去掉
 			$("#manSpan").removeClass("icon-check");
 		})
+		
+		$("#mpass").click(function(){
+			$("#flag").text("");
+		})
 	})
 </script>
 </head>
@@ -56,6 +59,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="field">
 						<input type="text" class="input w50" id="mpass" name="username"
 							size="50" placeholder="请输入用户名" data-validate="required:请输入用户名" />
+							<c:if test="${flag.equals('regFaild')}">
+							<span id="flag" style="color: red;">用户名已被使用</span>
+							</c:if>
+							<c:remove var="flag" scope="session"/>
 					</div>
 				</div>
 				<div class="form-group">
@@ -88,11 +95,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			          
 			          <label class="button active">
 			         	  <span class="icon-check" id="manSpan"></span>             
-			              <input name="sex" value="1" id="man" type="radio" checked="checked">男         
+			              <input name="sex" value="男" id="man" type="radio" checked="checked">男         
 			          </label>             
 			        
 			          <label class="button active" ><span class="" id="womanSpan"></span>          	
-			              <input name="sex" value="0" id="woman" type="radio">女
+			              <input name="sex" value="女" id="woman" type="radio">女
 			          </label>         
 			           </div>       
 			        </div>

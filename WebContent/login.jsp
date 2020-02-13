@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -27,23 +28,16 @@
             <input type="hidden" name="method" value="userLogin" />
             <div class="panel loginbox">
                 <div class="text-center margin-big padding-big-top"><h1>后台管理中心</h1></div>
-		    	<!-- 声明Java代码块 -->
-		     <%
-		    	Object obj = session.getAttribute("flag");
-		    	if(obj!=null){
-		    		if("regSuccess".equals((String)obj)){
-		    			%>
-			    		<div id="session" align="center"><font color="red">注册成功！</font></div>		    		
-			    		<%
-		    		} 
-		    			if("LoginFalse".equals((String)obj)){
-		    			%>
-			    		<div id="session" align="center"><font color="red">账号密码错误！</font></div>		    		
-			    		<%
-		    		}		    		
-		    	}
-		    		session.invalidate();
-		    %>             
+		    	<c:choose>
+		    		<c:when test="${flag.equals('regSuccess')}">
+		    		<div id="session" align="center"><font color="red">注册成功！</font></div>		    		
+		    		</c:when>
+		    		<c:when test="${flag.equals('LoginFalse')}">
+		    		<div id="session" align="center"><font color="red">用户名或密码错误！</font></div>		    		
+		    		</c:when>
+		    	</c:choose>
+		    	<c:remove var="flag" scope="session"/>
+		    	                 
                 <div class="panel-body" style="padding:30px; padding-bottom:10px; padding-top:10px;">
                     <div class="form-group">
                         <div class="field field-icon-right">

@@ -1,11 +1,16 @@
 package com.bjsxt.test;
 
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import com.bjsxt.bean.User;
 import com.bjsxt.dao.UserDao;
 import com.bjsxt.daoImpl.UserDaoImpl;
+import com.bjsxt.service.UserService;
 import com.bjsxt.serviceImpl.UserServiceImpl;
+import com.bjsxt.util.MyBatisUtil;
 
 public class TestUser {
 	
@@ -35,6 +40,9 @@ public class TestUser {
 		User u = new User();
 		u.setPassword("123");
 		u.setUsername("ddd");
+		u.setAge(18);
+		u.setSex("男");
+		u.setBirthday("2000-07-19");
 //		UserDao dao = new UserDaoImpl();
 //		Boolean b = dao.checkRepeat(u);
 //		System.out.println(b);
@@ -45,6 +53,24 @@ public class TestUser {
 		
 		boolean a = new UserServiceImpl().regUser(u);
 		System.out.println(a);
+	}
+	
+	@Test
+	public void selUserInfo() {
+		UserService us = new UserServiceImpl();
+		List<User> list = us.selUserInfo();
+		for (User user : list) {
+			System.out.println(user);
+		}
+	}
+	
+	@Test
+	public void testt() {
+		SqlSession session = MyBatisUtil.getSqlsession();
+		List<User> list = session.selectList("com.bjsxt.mapper.UserMapper.selUserInfo");
+		for (User user : list) {
+			System.out.println(user);
+		}
 	}
 }
 
